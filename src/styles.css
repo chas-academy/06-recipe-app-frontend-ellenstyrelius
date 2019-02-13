@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #ffc1b9, #f7b15d);
+    height: 100%;
+}
+
+h1, 
+h2 {
+    color: darkslategray;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+    margin: 50px 0;
+}
+
+h1 {
+    font-size: 65px;
+}
+
+.headers {
+    margin: 200px 20px;
+    border: 1px dashed white;
+    border-radius: 10px;
+}
