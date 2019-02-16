@@ -2,6 +2,8 @@
     <p>
     search for recipes here:
   </p>
-
-  <button (click)="handleSearch()">search</button>
+  <form #form="ngForm"(ngSubmit)="handleSearch(form)">
+    <input name="search" ngModel placeholder="yummy" required/>
+    <button type="submit">search</button>
+  </form>
 </div>

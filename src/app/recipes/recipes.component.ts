@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from './recipes.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipes',
@@ -7,11 +8,21 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
+  recipes: [];
 
   constructor(private recipesService: RecipesService) {}
 
-  handleSearch = () => {
-    console.log(this.recipesService);
+  handleSearch = (form: NgForm) => {
+    const input = form.value.search;
+
+    this.recipesService.recipeSearch(input)
+      .subscribe(data => {
+        this.recipes = data.hits;
+        console.log(this.recipes);
+      })
+      ;
+      
+    
   }
 
   ngOnInit() {
