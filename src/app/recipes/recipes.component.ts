@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from './recipes.service';
 import { NgForm } from '@angular/forms';
+
+import { RecipesService } from './recipes.service';
 
 @Component({
   selector: 'app-recipes',
@@ -19,8 +20,7 @@ export class RecipesComponent implements OnInit {
       .subscribe(data => {
         this.recipes = data.hits;
         console.log(this.recipes);
-      })
-      ;
+      });
       
     
   }
