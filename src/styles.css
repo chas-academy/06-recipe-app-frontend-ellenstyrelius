@@ -26,12 +26,13 @@ h1 {
 }
 
 .headers {
-    margin: 150px 20px;
+    margin: 100px 20px;
     border: 1px dashed white;
     border-radius: 10px;
 }
 
-.search {
+.search,
+.searchResult {
     margin: 50px 20px;
 }
 
