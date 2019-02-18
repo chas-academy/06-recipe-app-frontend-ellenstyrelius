@@ -1,9 +1,6 @@
 <section class="search">
-    <p>
-    search for recipes here:
-  </p>
   <form #form="ngForm"(ngSubmit)="handleSearch(form)">
-    <input name="search" ngModel required/>
+    <input name="search" placeholder="search for recipes" ngModel required/>
     <button type="submit">search</button>
   </form>
 </section>
@@ -11,7 +8,7 @@
 <section class="searchResult" *ngIf="recipes">
   <div *ngIf="recipes.length > 0; then recipesList else notFoundMessage"></div>
   <ng-template #recipesList>
-    <div *ngFor="let recipe of recipes">
+    <div class="recipe" *ngFor="let recipe of recipes">
       <img src="{{recipe.recipe.image}}"/>
       <p>{{recipe.recipe.label}}</p>
     </div>
@@ -19,4 +16,8 @@
   <ng-template #notFoundMessage>
     <p>sorry, we couldn't find any recipes :(</p>
   </ng-template>
+</section>
+
+<section class="loading" *ngIf="form.submitted && !recipes">
+  <p>wait for it.... (°-°)</p>
 </section>
