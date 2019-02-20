@@ -7,11 +7,11 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path : '', redirectTo: '/recipes', pathMatch: 'full' },
-  { path : 'recipes', component: RecipesComponent },
-  { path : 'recipes/:id', component: RecipeDetailComponent },
-  { path : 'saved/:id', component: SavedRecipesComponent },
-  { path : '**', component: NotFoundComponent },
+  { path: '', pathMatch: 'full', component: RecipesComponent },
+  { path: 'recipes', pathMatch: 'full', component: RecipesComponent },
+  { path: 'recipes/:id', pathMatch: 'full', component: RecipeDetailComponent },
+  { path: 'saved/:id', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

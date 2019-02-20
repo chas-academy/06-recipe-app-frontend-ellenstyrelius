@@ -7,6 +7,7 @@
 
 body {
     background-image: linear-gradient(to bottom right, #ffc1b9, #f7b15d);
+    background-size: cover;
     font-family: Helvetica, sans-serif;
     color: darkslategray;
 }  
@@ -22,4 +23,8 @@ button {
     font-weight: 100;
     color: white;
     background: #547267;
+}
+
+a {
+    color: #427272;
 }

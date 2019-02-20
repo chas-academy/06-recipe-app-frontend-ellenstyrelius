@@ -9,7 +9,6 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { LayoutComponent } from './layout/layout.component';
     RecipesComponent,
     RecipeDetailComponent,
     SavedRecipesComponent,
-    NotFoundComponent,
-    LayoutComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

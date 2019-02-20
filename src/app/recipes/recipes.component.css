@@ -27,7 +27,15 @@
     font-size: 14px;
 }
 
+.loading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .recipe {
+    width: 310px;
+    height: 310px;
     margin: 20px 10px;
     text-align: center;
 }

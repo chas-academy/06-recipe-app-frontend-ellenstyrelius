@@ -20,9 +20,12 @@ export class RecipesComponent implements OnInit {
       .subscribe(data => {
         this.recipes = data.hits;
         console.log(this.recipes);
-      });
-      
+        // this.id = data.hits.recipe.uri;
+        // console.log(this.id);
+      });  
   }
+
+      
 
   ngOnInit() {
   }
