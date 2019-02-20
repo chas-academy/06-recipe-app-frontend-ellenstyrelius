@@ -9,7 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: RecipesComponent },
   { path: 'recipes', pathMatch: 'full', component: RecipesComponent },
-  { path: 'recipes/:id', pathMatch: 'full', component: RecipeDetailComponent },
+  { path: 'recipes/:label/:id', pathMatch: 'full', component: RecipeDetailComponent },
   { path: 'saved/:id', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },
   { path: '**', component: NotFoundComponent }
 ];

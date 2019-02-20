@@ -8,11 +8,11 @@
 <section class="searchResult" *ngIf="recipes">
   <div *ngIf="recipes.length > 0; then recipesList else notFoundMessage"></div>
   <ng-template #recipesList>
-    <div class="recipe" *ngFor="let recipe of recipes">
-      <a routerLink="/recipes/{{recipe.recipe.label}}" routerLinkActive="active">
-        <img src="{{recipe.recipe.image}}"/>
+    <div class="recipeCard" *ngFor="let recipe of recipes">
+      <a routerLink="/recipes/{{recipe.label}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
+        <img src="{{recipe.image}}"/>
       </a>
-      <p>{{recipe.recipe.label}}</p>
+      <p>{{recipe.label}}</p>
     </div>
   </ng-template>
   <ng-template #notFoundMessage>

@@ -9,23 +9,30 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-  recipes: [];
+  recipesCollection: any;
+  recipes: any;
+  recipeIds: any;
 
   constructor(private recipesService: RecipesService) {}
 
   handleSearch = (form: NgForm) => {
     const input = form.value.search;
 
-    this.recipesService.recipeSearch(input)
-      .subscribe(data => {
-        this.recipes = data.hits;
-        console.log(this.recipes);
-        // this.id = data.hits.recipe.uri;
-        // console.log(this.id);
-      });  
-  }
+    const apiRequest = this.recipesService.recipeSearch(input);
 
-      
+    apiRequest.subscribe(data => {
+        this.recipesCollection = data.hits;
+
+        this.recipes = this.recipesCollection.map(hit => hit.recipe);
+        
+        console.log(this.recipes);
+
+        // this.recipeIds = this.recipes.map(recipe => recipe.uri.slice(51));
+        
+        // console.log(this.recipeIds);
+      });
+    
+  }
 
   ngOnInit() {
   }
