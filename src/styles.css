@@ -19,10 +19,15 @@ button {
     border-radius: 20px;
     box-shadow: 0 3px 2px #9b6f3a;
     cursor: pointer;
-    font-size: 18px;
     font-weight: 100;
     color: white;
     background: #547267;
+}
+
+button:hover {
+    background: #fcccb6;
+    color: darkslategray;
+    transition: 0.25s;
 }
 
 a {

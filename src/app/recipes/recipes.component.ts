@@ -11,8 +11,11 @@ import { RecipesService } from './recipes.service';
 export class RecipesComponent implements OnInit {
   recipesCollection: any;
   recipes: any;
+  healthLabels: any;
 
-  constructor(private recipesService: RecipesService) {}
+  constructor(private recipesService: RecipesService) {
+    this.healthLabels = ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'peanut-free', 'soy-free', 'alcohol-free', 'low-sugar' ];
+  }
 
   handleSearch = (form: NgForm) => {
     const input = form.value.search;

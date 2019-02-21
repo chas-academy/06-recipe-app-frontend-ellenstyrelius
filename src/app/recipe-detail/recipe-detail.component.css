@@ -1,0 +1,70 @@
+.recipe {
+    width: 95%;
+    margin: 50px auto;
+    padding: 10px;
+}
+
+.recipe h2 {
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    margin: 20px;
+}
+
+.recipe img {
+    display: block;
+    margin: 60px auto;
+}
+
+.ingredients {
+    background: white;
+    text-decoration: none;
+    width: 80%;
+    margin: 20px auto;
+    padding: 40px 25px;
+
+}
+
+.ingredients p {
+    line-height: 1.5;
+    margin: 19px 0;
+}
+
+.health,
+.recipeLinks {
+    width: 80%;
+    margin: 30px auto 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.health p {
+    font-size: 13px;
+    margin: 10px;
+    padding: 2px;
+    border: 1px dashed antiquewhite;
+}
+
+.recipeLinks a, 
+.recipeLinks button {
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 5px 7px;
+    display: block;
+}
+
+.recipeLinks a {
+    background: #ffceb1;
+    color: darkslategray;
+    text-decoration: none;
+    border: 1px solid antiquewhite;
+    /* border-radius: 20px; */
+    box-shadow: 0 3px 2px #9b6f3a;
+}
+
+.recipeLinks a:hover {
+    background: antiquewhite;
+    transition: 0.25s;
+}

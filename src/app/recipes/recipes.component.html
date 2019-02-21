@@ -1,7 +1,14 @@
 <section class="search">
   <form #form="ngForm"(ngSubmit)="handleSearch(form)">
-    <input name="search" placeholder="search for recipes" ngModel required/>
-    <button type="submit">search</button>
+    <div class="searchfield">
+      <input name="search" type="text" placeholder="search for recipes" ngModel required />
+      <button type="submit">search</button>
+    </div>
+    <div class="diet">
+      <div *ngFor="let healthLabel of healthLabels">
+        <input name="{{healthLabel}}" type="checkbox" /> {{healthLabel.split('-').join(' ')}}
+      </div>
+    </div>
   </form>
 </section>
 
@@ -12,7 +19,7 @@
       <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
         <img src="{{recipe.image}}"/>
       </a>
-      <p>{{recipe.label}}</p>
+      <p class="label">{{recipe.label}}</p>
     </div>
   </ng-template>
   <ng-template #notFoundMessage>

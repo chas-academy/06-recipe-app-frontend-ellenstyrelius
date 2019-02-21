@@ -2,13 +2,30 @@
   <h2>
     {{recipeDetails.label}}
   </h2>
+
   <img src="{{recipeDetails.image}}" />
-  <div *ngFor="let ingredient of recipeDetails.ingredientLines">
-    <p>
-      {{ingredient}}
-    </p>
+
+  <div class="ingredients">
+    <div *ngFor="let ingredient of recipeDetails.ingredientLines">
+      <p>
+        - {{ingredient}}
+      </p>
+    </div>
   </div>
-  <a href="{{recipeDetails.url}}" target="_blank">
-    full recipe and instructions here
-  </a>
+
+  <div class="health">
+    <div *ngFor="let label of recipeDetails.healthLabels">
+      <p>
+        {{label}}
+      </p>
+    </div>
+  </div>
+
+  <div class="recipeLinks">
+    <a href="{{recipeDetails.url}}" target="_blank">
+      full recipe and instructions
+    </a>
+    <button>save</button>
+  </div> 
+
 </section>
