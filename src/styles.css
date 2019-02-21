@@ -28,3 +28,7 @@ button {
 a {
     color: #427272;
 }
+
+img {
+    border-radius: 100%;
+}

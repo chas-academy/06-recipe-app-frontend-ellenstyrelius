@@ -18,12 +18,12 @@ export class RecipesService {
     return apiRequest;
   }
 
-  recipeDetailSearch(label: string) {
-    console.log(label);
+  recipeDetailSearch(recipeId: string) {
     const {appId, apiKey} = credentials;
 
+    const apiDetailRequest = this.http.get<any>(`https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}&app_id=${appId}&app_key=${apiKey}`);
 
-    const apiDetailRequest = this.http.get<any>(`https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_9b5945e03f05acbf9d69625138385408&app_id=${appId}&app_key=${apiKey}`);
+    return apiDetailRequest;
   }
 
 }

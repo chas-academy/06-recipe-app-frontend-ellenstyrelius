@@ -11,7 +11,6 @@ import { RecipesService } from './recipes.service';
 export class RecipesComponent implements OnInit {
   recipesCollection: any;
   recipes: any;
-  recipeIds: any;
 
   constructor(private recipesService: RecipesService) {}
 
@@ -27,9 +26,6 @@ export class RecipesComponent implements OnInit {
         
         console.log(this.recipes);
 
-        // this.recipeIds = this.recipes.map(recipe => recipe.uri.slice(51));
-        
-        // console.log(this.recipeIds);
       });
     
   }
