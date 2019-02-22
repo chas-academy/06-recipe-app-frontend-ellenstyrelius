@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: RecipesComponent },
   { path: 'recipes', pathMatch: 'full', component: RecipesComponent },
   { path: 'recipes/:label/:id', pathMatch: 'full', component: RecipeDetailComponent },
-  { path: 'saved/:id', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },
+  { path: 'recipes/saved', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -25,7 +25,8 @@ button {
 }
 
 button:hover {
-    background: #fcccb6;
+    /* background: #fcccb6; */
+    background: #aec5bd;
     color: darkslategray;
     transition: 0.25s;
 }

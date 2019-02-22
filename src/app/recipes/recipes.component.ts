@@ -24,8 +24,6 @@ export class RecipesComponent implements OnInit {
 
     this.handleDietSelection(form);
 
-    // console.log(this.dietSelection);
-
     const input = form.value.search;
 
     const apiRequest = this.recipesService.recipeSearch(input, this.dietSelection);

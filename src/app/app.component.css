@@ -9,6 +9,22 @@ nav {
     z-index: 100;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    background: #fcece2;
+    font-size: 14px;
+    font-weight: 100;
+    text-decoration: none;
+    padding: 4px;
+    /* border: 1px dashed #689797; */
+}
+
+nav a:hover {
+    background: #547267;
+    color: white;
+    transition: 0.2s;
 }
 
 .banner {
