@@ -20,19 +20,30 @@
     background: white;
     text-decoration: none;
     width: 80%;
+    max-width: 600px;
     margin: 20px auto;
     padding: 40px 25px;
 
 }
 
 .ingredients p {
+    font-size: 16px;
     line-height: 1.5;
     margin: 19px 0;
+}
+
+#servings {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ffb083;
 }
 
 .health,
 .recipeLinks {
     width: 80%;
+    max-width: 600px;
     margin: 30px auto 50px;
     display: flex;
     align-items: center;

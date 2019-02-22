@@ -10,10 +10,12 @@ export class RecipesService {
 
   constructor(private http: HttpClient) { }
 
-  recipeSearch(input: string) {
+  recipeSearch(input: string, dietSelection) {
     const {appId, apiKey} = credentials;
 
-    const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=50`);
+    const diet = dietSelection.join('');
+
+    const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=50${diet}`);
 
     return apiRequest;
   }

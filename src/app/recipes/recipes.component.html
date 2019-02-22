@@ -1,12 +1,15 @@
 <section class="search">
   <form #form="ngForm"(ngSubmit)="handleSearch(form)">
     <div class="searchfield">
-      <input name="search" type="text" placeholder="search for recipes" ngModel required />
+      <input ngModel type="text" name="search" placeholder="search for recipes" required />
       <button type="submit">search</button>
     </div>
     <div class="diet">
       <div *ngFor="let healthLabel of healthLabels">
-        <input name="{{healthLabel}}" type="checkbox" /> {{healthLabel.split('-').join(' ')}}
+        <input ngModel type="checkbox" name="&health={{healthLabel}}"/> {{healthLabel.split('-').join(' ')}}
+      </div>
+      <div *ngFor="let dietLabel of dietLabels">
+        <input ngModel type="checkbox" name="&diet={{dietLabel}}"/> {{dietLabel.split('-').join(' ')}}
       </div>
     </div>
   </form>
