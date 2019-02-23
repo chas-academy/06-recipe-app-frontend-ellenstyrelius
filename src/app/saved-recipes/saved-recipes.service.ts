@@ -8,7 +8,12 @@ export class SavedRecipesService {
   constructor() { }
 
   saveRecipe(recipeDetails) {
-    console.log(recipeDetails);
+    localStorage.setItem('recipe', JSON.stringify(recipeDetails));
+  }
+
+  getSavedRecipe() {
+    const savedRecipe = JSON.parse(localStorage.getItem('recipe'));
+    return savedRecipe;
   }
 
 }

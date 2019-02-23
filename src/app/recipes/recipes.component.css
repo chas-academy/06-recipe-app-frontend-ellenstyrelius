@@ -23,7 +23,7 @@
 .searchfield input {
     width: 400px;
     margin: 7px;
-    padding: 6px;
+    padding: 6px 15px;
     border-radius: 15px;
     border: 1px solid lightgray;
     font-size: 14px;

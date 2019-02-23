@@ -16,7 +16,7 @@
 </section>
 
 <section class="searchResult" *ngIf="recipes">
-  <div *ngIf="recipes.length > 0; then recipesList else notFoundMessage"></div>
+  <div *ngIf="recipes.length; then recipesList else notFoundMessage"></div>
   <ng-template #recipesList>
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">

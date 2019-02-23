@@ -12,19 +12,14 @@ export class RecipesService {
 
   recipeSearch(input: string, dietSelection) {
     const {appId, apiKey} = credentials;
-
     const diet = dietSelection.join('');
-
-    const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=50${diet}`);
-
+    const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
     return apiRequest;
   }
 
   recipeDetailSearch(recipeId: string) {
     const {appId, apiKey} = credentials;
-
     const apiDetailRequest = this.http.get<any>(`https://api.edamam.com/search?r=http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23recipe_${recipeId}&app_id=${appId}&app_key=${apiKey}`);
-
     return apiDetailRequest;
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SavedRecipesService } from './saved-recipes.service';
+
 @Component({
   selector: 'app-saved-recipes',
   templateUrl: './saved-recipes.component.html',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedRecipesComponent implements OnInit {
 
-  constructor() { }
+  constructor(savedRecipesService: SavedRecipesService) { 
+    const savedRecipes = savedRecipesService.getSavedRecipe();
+    console.log(savedRecipes);
+  }
 
   ngOnInit() {
   }

@@ -7,7 +7,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: RecipesComponent },
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', pathMatch: 'full', component: RecipesComponent },
   { path: 'recipes/:label/:id', pathMatch: 'full', component: RecipeDetailComponent },
   { path: 'recipes/saved', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },

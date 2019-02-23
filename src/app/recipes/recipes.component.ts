@@ -13,7 +13,6 @@ export class RecipesComponent implements OnInit {
   recipes: any;
   healthLabels: any;
   dietLabels: any;
-  dietSelection: any;
 
   constructor(private recipesService: RecipesService) {
     this.healthLabels = ['peanut-free', 'sugar-conscious', 'alcohol-free', 'tree-nut-free'];
@@ -21,37 +20,29 @@ export class RecipesComponent implements OnInit {
   }
 
   handleSearch = (form: NgForm) => {
-
-    this.handleDietSelection(form);
-
+    const dietSelections = this.handleDietSelections(form);
     const input = form.value.search;
 
-    const apiRequest = this.recipesService.recipeSearch(input, this.dietSelection);
-
+    const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
         this.recipesCollection = data.hits;
-
         this.recipes = this.recipesCollection.map(hit => hit.recipe);
-        
+        ///////////////
         console.log("recipes:", this.recipes);
-
+        //////////////
       });
-    
   }
 
-  handleDietSelection = (form: NgForm) => {
-    
-    this.dietSelection = [];
-    
-    for (let value in form.value) {
-      if (form.value[value] === true) {
-        this.dietSelection.push(value);
+  handleDietSelections = (form: NgForm) => {
+    const diet = [];
+    for (let key in form.value) {
+      if (form.value[key] === true ) {
+        diet.push(key);
       }
     }
-
+    return diet;
   }
 
   ngOnInit() {
   }
-
 }
