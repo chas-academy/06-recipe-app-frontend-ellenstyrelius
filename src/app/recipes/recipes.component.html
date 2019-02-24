@@ -23,6 +23,7 @@
         <img src="{{recipe.image}}"/>
       </a>
       <p class="label">{{recipe.label}}</p>
+      <button (click)="handleSaveRecipe(recipe)">save</button>
     </div>
   </ng-template>
   <ng-template #notFoundMessage>

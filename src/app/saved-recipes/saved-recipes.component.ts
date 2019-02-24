@@ -19,8 +19,9 @@ export class SavedRecipesComponent implements OnInit {
     console.log(this.savedRecipes);
   }
 
-  removeRecipe = (recipeIndex) => {
-    this.savedRecipesService.removeSavedRecipe(recipeIndex);
+  removeRecipe = (recipeUri) => {
+    this.savedRecipesService.removeSavedRecipe(recipeUri);
+    this.getSavedRecipesList();
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { RecipesService } from './recipes.service';
+import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
 
 @Component({
   selector: 'app-recipes',
@@ -13,7 +14,7 @@ export class RecipesComponent implements OnInit {
   healthLabels: any;
   dietLabels: any;
 
-  constructor(private recipesService: RecipesService) {
+  constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
     this.healthLabels = ['peanut-free', 'sugar-conscious', 'alcohol-free', 'tree-nut-free'];
     this.dietLabels = ['low-carb', 'low-fat', 'high-protein'];
   }
@@ -40,6 +41,10 @@ export class RecipesComponent implements OnInit {
       }
     }
     return diet;
+  }
+
+  handleSaveRecipe = (recipeDetails) => {
+    this.savedRecipesService.saveRecipe(recipeDetails);
   }
 
   ngOnInit() {

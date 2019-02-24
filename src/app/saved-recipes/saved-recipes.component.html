@@ -6,11 +6,11 @@
           <img src="{{recipe.image}}"/>
         </a>
         <p class="label">{{recipe.label}}</p>
-        <button (click)="removeRecipe(savedRecipes.indexOf(recipe))">remove</button>
+        <button (click)="removeRecipe(recipe.uri)">remove</button>
       </div>
     </ng-template>
     <ng-template #noSavedRecipesMessage>
-      <p>You don't have any saved recipes yet. Search for recipes to get started!
+      <p>You don't have any saved recipes.
       </p>
       <a routerLink="/">search for recipes</a>
     </ng-template>

@@ -24,17 +24,18 @@ export class SavedRecipesService {
     return storedRecipes;
   }
 
-  removeSavedRecipe(recipeIndex) {
-    console.log(recipeIndex);
+  removeSavedRecipe(recipeUri) {
+    console.log(recipeUri);
 
     const storedRecipes = this.getSavedRecipes();
-    console.log(storedRecipes);
+    console.log(storedRecipes.uri);
 
-    const recipesArr = storedRecipes;
-    //recipesArr.
-    // remove item with index recipeIndex from array
+    const filteredRecipesArr = storedRecipes.filter(recipe => {
+      return recipe.uri !== recipeUri;
+    });
+    
+    localStorage.setItem('recipes', JSON.stringify(filteredRecipesArr));
 
-    localStorage.removeItem(recipeIndex);
   }
 
 }
