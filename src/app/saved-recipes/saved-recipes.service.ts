@@ -8,12 +8,23 @@ export class SavedRecipesService {
   constructor() { }
 
   saveRecipe(recipeDetails) {
-    localStorage.setItem('recipe', JSON.stringify(recipeDetails));
+    let storedRecipes = JSON.parse(localStorage.getItem('recipes'));
+    const recipesArr = [];
+    recipesArr.push(recipeDetails);
+    if (storedRecipes) {
+      storedRecipes.forEach(object => {
+        recipesArr.push(object);
+      });
+    }
+    
+    console.log(recipesArr);
+
+    localStorage.setItem('recipes', JSON.stringify(recipesArr));
   }
 
-  getSavedRecipe() {
-    const savedRecipe = JSON.parse(localStorage.getItem('recipe'));
-    return savedRecipe;
+  getSavedRecipes() {
+    const savedRecipes = JSON.parse(localStorage.getItem('recipes'));
+    return savedRecipes;
   }
 
 }

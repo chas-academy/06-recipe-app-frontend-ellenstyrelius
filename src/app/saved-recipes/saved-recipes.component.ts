@@ -10,7 +10,7 @@ import { SavedRecipesService } from './saved-recipes.service';
 export class SavedRecipesComponent implements OnInit {
 
   constructor(savedRecipesService: SavedRecipesService) { 
-    const savedRecipes = savedRecipesService.getSavedRecipe();
+    const savedRecipes = savedRecipesService.getSavedRecipes();
     console.log(savedRecipes);
   }
 

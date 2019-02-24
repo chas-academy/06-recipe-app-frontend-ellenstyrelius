@@ -9,7 +9,6 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-  recipesCollection: any;
   recipes: any;
   healthLabels: any;
   dietLabels: any;
@@ -25,8 +24,8 @@ export class RecipesComponent implements OnInit {
 
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
-        this.recipesCollection = data.hits;
-        this.recipes = this.recipesCollection.map(hit => hit.recipe);
+        const recipesCollection = data.hits;
+        this.recipes = recipesCollection.map(hit => hit.recipe);
         ///////////////
         console.log("recipes:", this.recipes);
         //////////////
