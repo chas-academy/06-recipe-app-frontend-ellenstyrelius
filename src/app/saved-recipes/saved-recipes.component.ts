@@ -8,10 +8,19 @@ import { SavedRecipesService } from './saved-recipes.service';
   styleUrls: ['./saved-recipes.component.css']
 })
 export class SavedRecipesComponent implements OnInit {
+  savedRecipes: any;
 
-  constructor(savedRecipesService: SavedRecipesService) { 
-    const savedRecipes = savedRecipesService.getSavedRecipes();
-    console.log(savedRecipes);
+  constructor(private savedRecipesService: SavedRecipesService) { 
+    this.getSavedRecipesList();
+  }
+
+  getSavedRecipesList = () => {
+    this.savedRecipes = this.savedRecipesService.getSavedRecipes();
+    console.log(this.savedRecipes);
+  }
+
+  removeRecipe = (recipeIndex) => {
+    this.savedRecipesService.removeSavedRecipe(recipeIndex);
   }
 
   ngOnInit() {

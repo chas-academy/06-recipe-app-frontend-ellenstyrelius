@@ -1,3 +1,17 @@
-<p>
-  saved-recipes works!
-</p>
+<section class="savedRecipes">
+    <div *ngIf="savedRecipes && savedRecipes.length; then savedRecipesList else noSavedRecipesMessage"></div>
+    <ng-template #savedRecipesList>
+      <div class="recipeCard" *ngFor="let recipe of savedRecipes">
+        <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
+          <img src="{{recipe.image}}"/>
+        </a>
+        <p class="label">{{recipe.label}}</p>
+        <button (click)="removeRecipe(savedRecipes.indexOf(recipe))">remove</button>
+      </div>
+    </ng-template>
+    <ng-template #noSavedRecipesMessage>
+      <p>You don't have any saved recipes yet. Search for recipes to get started!
+      </p>
+      <a routerLink="/">search for recipes</a>
+    </ng-template>
+  </section>

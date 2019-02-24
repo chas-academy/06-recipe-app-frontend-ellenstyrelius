@@ -24,11 +24,11 @@ export class RecipesComponent implements OnInit {
 
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
-        const recipesCollection = data.hits;
-        this.recipes = recipesCollection.map(hit => hit.recipe);
-        ///////////////
-        console.log("recipes:", this.recipes);
-        //////////////
+      const recipesCollection = data.hits;
+      this.recipes = recipesCollection.map(hit => hit.recipe);
+      ///////////////
+      console.log("recipes:", this.recipes);
+      //////////////
       });
   }
 

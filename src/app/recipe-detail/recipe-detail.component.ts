@@ -12,7 +12,6 @@ export class RecipeDetailComponent implements OnInit {
   recipeDetails: any;
 
   constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
-
     this.getRecipeDetails();
   }
 
@@ -25,7 +24,6 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   handleSaveRecipe = (recipeDetails) => {
-    recipeDetails = this.recipeDetails;
 
     alert('recipe saved!');
     
