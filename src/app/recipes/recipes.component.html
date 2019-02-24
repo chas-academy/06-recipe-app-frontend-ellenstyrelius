@@ -19,10 +19,10 @@
   <div *ngIf="recipes.length; then recipesList else notFoundMessage"></div>
   <ng-template #recipesList>
     <div class="recipeCard" *ngFor="let recipe of recipes">
-      <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
-        <img src="{{recipe.image}}"/>
+      <img src="{{recipe.image}}"/>
+      <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" class="label" routerLinkActive="active">
+      {{recipe.label}}
       </a>
-      <p class="label">{{recipe.label}}</p>
       <button (click)="handleSaveRecipe(recipe)">save</button>
     </div>
   </ng-template>

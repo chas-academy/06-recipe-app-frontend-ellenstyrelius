@@ -24,9 +24,6 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   handleSaveRecipe = (recipeDetails) => {
-
-    alert('recipe saved!');
-    
     this.savedRecipesService.saveRecipe(recipeDetails);
   }
 

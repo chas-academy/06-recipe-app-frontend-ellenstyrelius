@@ -1,6 +1,9 @@
 <section class="savedRecipes">
     <div *ngIf="savedRecipes && savedRecipes.length; then savedRecipesList else noSavedRecipesMessage"></div>
     <ng-template #savedRecipesList>
+      <div class="removeAllButton">
+        <button id="removeAll" (click)="removeAllRecipes()">remove all recipes</button>
+      </div>
       <div class="recipeCard" *ngFor="let recipe of savedRecipes">
         <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
           <img src="{{recipe.image}}"/>
@@ -9,6 +12,7 @@
         <button (click)="removeRecipe(recipe.uri)">remove</button>
       </div>
     </ng-template>
+
     <ng-template #noSavedRecipesMessage>
       <p>You don't have any saved recipes.
       </p>

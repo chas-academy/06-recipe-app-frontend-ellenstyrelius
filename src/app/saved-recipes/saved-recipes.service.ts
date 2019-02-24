@@ -9,14 +9,14 @@ export class SavedRecipesService {
 
   saveRecipe(recipeDetails) {
     const storedRecipes = this.getSavedRecipes();
-
     const recipesArr = storedRecipes && storedRecipes.length ? storedRecipes : [];
-    
-    recipesArr.unshift(recipeDetails);
- 
-    console.log(recipesArr);
-
-    localStorage.setItem('recipes', JSON.stringify(recipesArr));
+    // this if statement is not working but I don't understand why???
+    if (storedRecipes.filter(recipe => 
+      recipe.uri !== recipeDetails.uri
+      )) {
+        recipesArr.unshift(recipeDetails);
+        localStorage.setItem('recipes', JSON.stringify(recipesArr));
+      }
   }
 
   getSavedRecipes() {
@@ -25,17 +25,11 @@ export class SavedRecipesService {
   }
 
   removeSavedRecipe(recipeUri) {
-    console.log(recipeUri);
-
     const storedRecipes = this.getSavedRecipes();
-    console.log(storedRecipes.uri);
-
-    const filteredRecipesArr = storedRecipes.filter(recipe => {
-      return recipe.uri !== recipeUri;
-    });
-    
+    const filteredRecipesArr = storedRecipes.filter(recipe => 
+      recipe.uri !== recipeUri
+    );
     localStorage.setItem('recipes', JSON.stringify(filteredRecipesArr));
-
   }
 
 }

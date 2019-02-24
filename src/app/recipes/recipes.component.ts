@@ -27,9 +27,6 @@ export class RecipesComponent implements OnInit {
     apiRequest.subscribe(data => {
       const recipesCollection = data.hits;
       this.recipes = recipesCollection.map(hit => hit.recipe);
-      ///////////////
-      console.log("recipes:", this.recipes);
-      //////////////
       });
   }
 

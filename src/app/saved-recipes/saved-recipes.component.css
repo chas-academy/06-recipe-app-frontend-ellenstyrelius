@@ -1,0 +1,55 @@
+.savedRecipes {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.removeAllButton {
+    width: 100%;
+    margin: 10px 0 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.savedRecipes button {
+    background: #db8e46;
+    color: darkslategray;
+}
+
+.savedRecipes button:hover {
+    background: #b36319;
+    color: white;
+}
+
+#removeAll {
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 8px;
+    position: sticky;
+    top: 0px;
+}
+
+.recipeCard {
+    width: 380px;
+    margin: 30px 0;
+    padding: 40px;
+    background: white;
+}
+
+.recipeCard img {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.recipeCard p {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.recipeCard button {
+    margin: 10px 0;
+    font-size: 13px;
+}

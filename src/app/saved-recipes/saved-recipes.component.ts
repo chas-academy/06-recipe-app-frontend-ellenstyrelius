@@ -16,11 +16,15 @@ export class SavedRecipesComponent implements OnInit {
 
   getSavedRecipesList = () => {
     this.savedRecipes = this.savedRecipesService.getSavedRecipes();
-    console.log(this.savedRecipes);
   }
 
   removeRecipe = (recipeUri) => {
     this.savedRecipesService.removeSavedRecipe(recipeUri);
+    this.getSavedRecipesList();
+  }
+
+  removeAllRecipes = () => {
+    localStorage.clear();
     this.getSavedRecipesList();
   }
 
