@@ -10,13 +10,8 @@ export class SavedRecipesService {
   saveRecipe(recipeDetails) {
     const storedRecipes = this.getSavedRecipes();
     const recipesArr = storedRecipes && storedRecipes.length ? storedRecipes : [];
-    // this if statement is not working but I don't understand why???
-    if (storedRecipes.filter(recipe => 
-      recipe.uri !== recipeDetails.uri
-      )) {
-        recipesArr.unshift(recipeDetails);
-        localStorage.setItem('recipes', JSON.stringify(recipesArr));
-      }
+    recipesArr.unshift(recipeDetails);
+    localStorage.setItem('recipes', JSON.stringify(recipesArr));
   }
 
   getSavedRecipes() {

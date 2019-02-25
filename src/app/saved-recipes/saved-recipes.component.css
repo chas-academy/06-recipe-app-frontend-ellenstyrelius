@@ -30,6 +30,7 @@
 
 .recipeCard {
     width: 380px;
+    max-width: 95%;
     margin: 30px 0;
     padding: 40px;
     background: white;
@@ -37,6 +38,7 @@
 
 .recipeCard img {
     width: 300px;
+    max-width: 90%;
     display: block;
     margin: 0 auto;
 }
@@ -52,4 +54,41 @@
 .recipeCard button {
     margin: 10px 0;
     font-size: 13px;
+}
+
+.noSavedRecipes {
+    background: white;
+    width: 80%;
+    max-width: 500px;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.noSavedRecipes p {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 100;
+    display: block;
+    width: 100%;
+    margin: 30px;
+    text-align: center;
+}
+
+.noSavedRecipes a {
+    background: #ffceb1;
+    color: darkslategray;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 10px 0 30px;
+    padding: 5px;
+    border: 1px solid antiquewhite;
+    box-shadow: 0 3px 2px #9b6f3a;
+}
+
+.noSavedRecipes a:hover {
+    background: antiquewhite;
+    transition: 0.25s;
 }
