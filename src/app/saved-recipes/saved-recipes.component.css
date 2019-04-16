@@ -19,21 +19,24 @@
     display: flex;
     justify-content: flex-end;
     position: sticky;
-    top: 80px;
+    top: 120px;
 }
 
 #removeAll {
     font-size: 15px;
-    margin: 10px 0;
-    padding: 8px;
+    margin: 18px 0;
 }
 
 .recipeCard {
     width: 380px;
     max-width: 95%;
-    margin: 0 auto 60px;
+    margin: 60px auto;
     padding: 40px;
     background: white;
+}
+
+.recipeCard a {
+    text-decoration: none;
 }
 
 .recipeCard img {
@@ -53,7 +56,7 @@
 
 .recipeCard button {
     margin: 10px 0;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .noSavedRecipes {

@@ -10,6 +10,7 @@ body {
     background-size: cover;
     font-family: Helvetica, sans-serif;
     color: darkslategray;
+    min-height: 100vh;
 }  
 
 button {
@@ -17,7 +18,7 @@ button {
     padding: 6px;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 3px 2px #9b6f3a;
+    box-shadow: 0 3px 3px #9b6f3a;
     cursor: pointer;
     font-weight: 100;
     color: white;

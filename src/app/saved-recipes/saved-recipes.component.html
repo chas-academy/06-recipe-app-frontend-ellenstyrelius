@@ -4,12 +4,15 @@
       <div class="removeAllButton">
         <button id="removeAll" (click)="removeAllRecipes()">remove all recipes</button>
       </div>
-      <div class="recipeCard" *ngFor="let recipe of savedRecipes">
-        <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
-          <img src="{{recipe.image}}"/>
-        </a>
-        <p class="label">{{recipe.label}}</p>
-        <button (click)="removeRecipe(recipe.uri)">remove</button>
+      <div class="recipeCards">
+        <div class="recipeCard" *ngFor="let recipe of savedRecipes">
+          <a routerLink="/recipes/{{recipe.label.split(' ').join('-')}}/{{recipe.uri.slice(51)}}" routerLinkActive="active">
+            <img src="{{recipe.image}}"/>
+          <!-- </a> -->
+          <p class="label">{{recipe.label}}</p>
+          </a>
+          <button (click)="removeRecipe(recipe.uri)">remove</button>
+        </div>
       </div>
     </ng-template>
 

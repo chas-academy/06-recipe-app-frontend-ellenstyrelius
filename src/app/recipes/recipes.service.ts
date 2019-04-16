@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { credentials } from '../api-key';
 
@@ -10,10 +10,29 @@ export class RecipesService {
 
   constructor(private http: HttpClient) { }
 
-  recipeSearch(input: string, dietSelection) {
-    const {appId, apiKey} = credentials;
-    const diet = dietSelection.join('');
-    const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
+  recipeSearch(/*input: string, dietSelection*/) {
+    // const {appId, apiKey} = credentials;
+    // const diet = dietSelection.join('');
+    // const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
+    const url = 'http://recipes.test/api/recipes';
+    // const httpHeaders = {
+    //   // 'Authorization': 'Bearer ' + API_TOKEN,
+    //   'Content-Type': 'application/json',
+    //   'X-Requested-With': 'XMLHttpRequest'
+    // }
+    // const fetchData = {
+    //   // method: 'GET',
+    //   headers: httpHeaders
+    // }
+    const fetchData = {
+      method: 'GET',
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': ''
+      })
+    }
+    const apiRequest = this.http.get<any>(url, fetchData);
     return apiRequest;
   }
 
