@@ -54,16 +54,27 @@
     border: 1px dashed antiquewhite;
 }
 
-.searchResult p,
-.loading p {
+.searchResult p {
     margin: 5px 0;
     text-align: center;
 }
 
 .loading {
-    width: 100%;
+    background: antiquewhite;
+    font-size: 20px;
+    width: 300px;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 7px;
     display: flex;
     justify-content: center;
+    animation: loader 3s infinite;
+}
+
+@keyframes loader {
+    0% {background-color: antiquewhite}
+    60% {background-color: #fd8f50}
+    100% {background-color: antiquewhite}
 }
 
 .recipeCard {

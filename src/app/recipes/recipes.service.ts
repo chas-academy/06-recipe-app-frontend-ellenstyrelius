@@ -22,6 +22,10 @@ export class RecipesService {
   recipeSearch(/*input: string, dietSelection*/) {
     // const diet = dietSelection.join('');
     // const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
+
+    //////////
+    // SET SOME TIMEOUT ON THE REQUEST OR SOMETHING!!!!!!!!
+
     const apiRequest = this.http.get<any>(this.url, this.fetchData);
     return apiRequest;
   }
