@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #ffc1b9, #f7b15d);
+    background-image: linear-gradient(#ffbca1, #fab677);
     background-size: cover;
     font-family: Helvetica, sans-serif;
     color: darkslategray;

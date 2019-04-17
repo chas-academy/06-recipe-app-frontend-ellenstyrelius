@@ -27,17 +27,8 @@ export class RecipesComponent implements OnInit {
     /////////// OBS kommenterat ut argument nedan:
     const apiRequest = this.recipesService.recipeSearch(/*input, dietSelections*/);
     apiRequest.subscribe(data => {
-//////////////////
-      
-      console.log("TCL: RecipesComponent -> handleSearch -> data", data, typeof data)
-
-      // const recipesCollection = data;
-
-      // const labels = data.map(obj => obj.label);
-      // console.log(labels);
-
       this.recipes = data;
-      });
+    });
   }
 
   handleDietSelections = (form: NgForm) => {

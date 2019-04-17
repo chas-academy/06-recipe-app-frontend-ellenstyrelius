@@ -16,10 +16,11 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   getRecipeDetails = () => {
-    const recipeId = location.pathname.slice(-32);
+    const recipeId = location.pathname.slice(9);
+
     const apiRequest = this.recipesService.recipeDetailSearch(recipeId);
     apiRequest.subscribe(data => {
-      this.recipeDetails = data[0];
+      this.recipeDetails = data;
     });
   }
 

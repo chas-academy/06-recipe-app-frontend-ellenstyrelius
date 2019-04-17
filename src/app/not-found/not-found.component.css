@@ -1,0 +1,22 @@
+.notFound {
+    width: 80%;
+    max-width: 500px;
+    margin: 100px auto;
+    border: 1px dashed white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+
+.notFound p {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 100;
+    display: block;
+    width: 100%;
+    margin: 30px;
+    text-align: center;
+}

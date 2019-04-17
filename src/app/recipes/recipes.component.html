@@ -20,7 +20,7 @@
   <ng-template #recipesList>
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <img src="{{recipe.image}}"/>
-      <a routerLink="/recipes/{{recipe.id}}/{{recipe.label.split(' ').join('-')}}" class="label" routerLinkActive="active">
+      <a routerLink="/recipes/{{recipe.id}}" class="label" routerLinkActive="active">
       {{recipe.label}}
       </a>
       <button (click)="handleSaveRecipe(recipe)">save</button>
