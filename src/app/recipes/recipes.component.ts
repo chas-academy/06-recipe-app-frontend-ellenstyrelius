@@ -14,18 +14,21 @@ export class RecipesComponent implements OnInit {
   // recipes: Array<Object>;
   healthLabels: any;
   dietLabels: any;
+  isLoading: boolean;
 
   constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
     this.dietLabels = ['vegetarian', 'vegan', 'sugar-conscious', 'alcohol-free', 'peanut-free', 'tree-nut-free', 'low-carb', 'low-fat', 'high-protein'];
   }
 
   handleSearch = (form: NgForm) => {
+    this.isLoading = true;
     const dietSelections = this.handleDietSelections(form);
     const input = form.value.search;
-    
+
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
       this.recipes = data;
+      this.isLoading = false;
     });
   }
 

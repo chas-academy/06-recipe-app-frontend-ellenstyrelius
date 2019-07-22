@@ -12,9 +12,8 @@
   </form>
 </section>
 
-<section class="searchResult" *ngIf="recipes">
-  <div *ngIf="recipes.length; then recipesList else notFoundMessage"></div>
-  <ng-template #recipesList>
+<section class="searchResult">
+  <div class="recipes" *ngIf="form.submitted &&recipes">
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <div class="recipeImg">
         <img src="{{recipe.image}}"/>
@@ -24,12 +23,12 @@
       </div>
       <button (click)="handleSaveRecipe(recipe)">save</button>
     </div>
-  </ng-template>
-  <ng-template #notFoundMessage>
+  </div>
+  <div class="notFound" *ngIf="form.submitted &&!isLoading &&!recipes">
     <p>sorry, we couldn't find any recipes :(</p>
-  </ng-template>
+  </div>
 </section>
 
-<section class="loading" *ngIf="form.submitted && !recipes">
+<section class="loading" *ngIf="form.submitted && isLoading">
   <p>wait for it.... (°-°)</p>
 </section>

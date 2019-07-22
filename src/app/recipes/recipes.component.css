@@ -1,5 +1,5 @@
 .search,
-.searchResult {
+.recipes {
     width: 90%;
     margin: 50px auto;
     display: flex;
@@ -119,4 +119,8 @@
 .label:hover {
     background: #ebbd82;
     transition: 0.15s;
+}
+
+.notFound {
+    text-align: center;
 }
