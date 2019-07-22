@@ -54,11 +54,6 @@
     border: 1px dashed antiquewhite;
 }
 
-.searchResult p {
-    margin: 5px 0;
-    text-align: center;
-}
-
 .loading {
     background: antiquewhite;
     font-size: 20px;
@@ -68,31 +63,45 @@
     padding: 7px;
     display: flex;
     justify-content: center;
-    animation: loader 3s infinite;
+    animation: loader 2.5s infinite;
 }
 
 @keyframes loader {
-    0% {background-color: antiquewhite}
-    60% {background-color: #fd8f50}
-    100% {background-color: antiquewhite}
+    0% {background-color: #ffba9f}
+    50% {background-color: #fd8f50}
+    100% {background-color: #ffba9f}
+}
+
+.searchResult p {
+    margin: 5px 0;
+    text-align: center;
 }
 
 .recipeCard {
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipeImg {
     width: 310px;
     height: 310px;
-    margin: 50px 10px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .recipeCard img {
-    margin: 10px;
+    width: 310px;
+    height: 310px;
 }
 
 .recipeCard button {
-    font-size: 13px;
+    font-size: 15px;
+    margin-top: 20px;
 }
 
 .label {

@@ -5,11 +5,8 @@
       <button type="submit">search</button>
     </div>
     <div class="diet">
-      <div *ngFor="let healthLabel of healthLabels">
-        <input ngModel type="checkbox" name="&health={{healthLabel}}"/> {{healthLabel.split('-').join(' ')}}
-      </div>
       <div *ngFor="let dietLabel of dietLabels">
-        <input ngModel type="checkbox" name="&diet={{dietLabel}}"/> {{dietLabel.split('-').join(' ')}}
+        <input ngModel type="checkbox" name={{dietLabel}}/> {{dietLabel.split('-').join(' ')}}
       </div>
     </div>
   </form>
@@ -19,10 +16,12 @@
   <div *ngIf="recipes.length; then recipesList else notFoundMessage"></div>
   <ng-template #recipesList>
     <div class="recipeCard" *ngFor="let recipe of recipes">
-      <img src="{{recipe.image}}"/>
-      <a routerLink="/recipes/{{recipe.id}}" class="label" routerLinkActive="active">
-      {{recipe.label}}
-      </a>
+      <div class="recipeImg">
+        <img src="{{recipe.image}}"/>
+        <a routerLink="/recipes/{{recipe.id}}" class="label" routerLinkActive="active">
+        {{recipe.label}}
+        </a>
+      </div>
       <button (click)="handleSaveRecipe(recipe)">save</button>
     </div>
   </ng-template>
