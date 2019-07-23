@@ -17,12 +17,15 @@ export class RecipesComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
-    this.dietLabels = ['vegetarian', 'vegan', 'sugar-conscious', 'alcohol-free', 'peanut-free', 'tree-nut-free', 'low-carb', 'low-fat', 'high-protein'];
+    this.dietLabels = ['Vegetarian', 'Vegan', 'Sugar-Conscious', 'Alcohol-Free', 'Peanut-Free', 'Tree-Nut-Free', 'Low-Carb', 'Low-Fat', 'High-Protein'];
+    this.deleteStoredRecipeSearch();
+    this.getStoredRecipeSearch();
   }
 
   handleSearch = (form: NgForm) => {
     this.isLoading = true;
     const dietSelections = this.handleDietSelections(form);
+
     const input = form.value.search;
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
@@ -30,8 +33,12 @@ export class RecipesComponent implements OnInit {
       ////////////////
       console.log('🐐: RecipesComponent -> handleSearch -> this.recipes', this.recipes)
       this.isLoading = false;
-    });
+      this.recipesService.removeRecipeSearch();
+      this.recipesService.storeRecipeSearch(this.recipes);
+    }); 
   }
+
+  ////// DO SOMETHING IF RESPONSE IS !200
 
   handleDietSelections = (form: NgForm) => {
     const diet = [];
@@ -40,9 +47,20 @@ export class RecipesComponent implements OnInit {
         diet.push(key);
       }
     }
-    ////////////////////////
-    console.log('🐐: RecipesComponent -> handleDietSelections -> diet', diet)
     return diet;
+  }
+
+  getStoredRecipeSearch = () => {
+    console.log(window.history.state.navigationId)
+
+    this.recipes = this.recipesService.reloadRecipeSearch();
+    
+  }
+
+  deleteStoredRecipeSearch = () => {
+    if(window.history.state.navigationId === 1) {
+      this.recipesService.removeRecipeSearch();
+    }
   }
 
   handleSaveRecipe = (recipeDetails) => {

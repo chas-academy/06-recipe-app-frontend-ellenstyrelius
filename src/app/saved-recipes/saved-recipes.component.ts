@@ -24,7 +24,7 @@ export class SavedRecipesComponent implements OnInit {
   }
 
   removeAllRecipes = () => {
-    localStorage.clear();
+    localStorage.removeItem('recipes');
     this.getSavedRecipesList();
   }
 

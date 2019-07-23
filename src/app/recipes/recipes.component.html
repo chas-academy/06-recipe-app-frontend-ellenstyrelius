@@ -6,14 +6,14 @@
     </div>
     <div class="diet">
       <div *ngFor="let dietLabel of dietLabels">
-        <input ngModel type="checkbox" name={{dietLabel}}/> {{dietLabel.split('-').join(' ')}}
+        <input ngModel type="checkbox" name={{dietLabel}}/> {{dietLabel.split('-').join(' ').toLowerCase()}}
       </div>
     </div>
   </form>
 </section>
 
 <section class="searchResult">
-  <div class="recipes" *ngIf="form.submitted && recipes">
+  <div class="recipes" *ngIf="recipes">
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <div class="recipeImg">
         <img src="{{recipe.image}}"/>

@@ -21,18 +21,30 @@ export class RecipesService {
 
   recipeSearch(input: string, dietSelection) {
 
-    const diet = '&diet=' + dietSelection.join('+');
+    const diet = '&diet=' + dietSelection;
     // const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
     const search = input.replace('+', ' ');
     
     console.log('🐐: RecipesService -> recipeSearch -> search', search)
     console.log('🐐: RecipesService -> recipeSearch -> diet', diet)
     
-    //////////
-    // SET SOME TIMEOUT ON THE REQUEST OR SOMETHING!!!!!!!!
+   
 
     const apiRequest = this.http.get<any>(`${this.url}/search?q=${input}${diet}`, this.fetchData);
     return apiRequest;
+  }
+
+  storeRecipeSearch(recipeSearch) {
+    localStorage.setItem('recipeSearch', JSON.stringify(recipeSearch));
+  }
+
+  reloadRecipeSearch() {
+    const storedRecipeSearch = JSON.parse(localStorage.getItem('recipeSearch'));
+    return storedRecipeSearch;
+  }
+
+  removeRecipeSearch() {
+    localStorage.removeItem('recipeSearch');
   }
 
   recipeDetailSearch(recipeId) {
