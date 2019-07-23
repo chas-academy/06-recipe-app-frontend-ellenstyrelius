@@ -13,7 +13,7 @@
 </section>
 
 <section class="searchResult">
-  <div class="recipes" *ngIf="form.submitted &&recipes">
+  <div class="recipes" *ngIf="form.submitted && recipes">
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <div class="recipeImg">
         <img src="{{recipe.image}}"/>
@@ -24,8 +24,8 @@
       <button (click)="handleSaveRecipe(recipe)">save</button>
     </div>
   </div>
-  <div class="notFound" *ngIf="form.submitted &&!isLoading &&!recipes">
-    <p>sorry, we couldn't find any recipes :(</p>
+  <div class="notFound" *ngIf="form.submitted && !isLoading && !recipes || form.submitted && !isLoading && recipes.length<1">
+    <p>sorry we couldn't find any recipes :(</p>
   </div>
 </section>
 

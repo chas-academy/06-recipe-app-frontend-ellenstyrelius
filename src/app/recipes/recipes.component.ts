@@ -24,10 +24,11 @@ export class RecipesComponent implements OnInit {
     this.isLoading = true;
     const dietSelections = this.handleDietSelections(form);
     const input = form.value.search;
-
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
       this.recipes = data;
+      ////////////////
+      console.log('🐐: RecipesComponent -> handleSearch -> this.recipes', this.recipes)
       this.isLoading = false;
     });
   }
@@ -39,7 +40,7 @@ export class RecipesComponent implements OnInit {
         diet.push(key);
       }
     }
-
+    ////////////////////////
     console.log('🐐: RecipesComponent -> handleDietSelections -> diet', diet)
     return diet;
   }
