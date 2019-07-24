@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "pasta pizza potato";
+
+  clearStoredRecipeSearch = () => {
+    localStorage.removeItem('recipeSearch');
+  }
 }
