@@ -25,13 +25,15 @@ export class RecipesComponent implements OnInit {
   handleSearch = (form: NgForm) => {
     this.isLoading = true;
     const dietSelections = this.handleDietSelections(form);
-
     const input = form.value.search;
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
       this.recipes = data;
       ////////////////
       console.log('🐐: RecipesComponent -> handleSearch -> this.recipes', this.recipes)
+
+      // filter this.recipes in some way to get more reasonable search results?
+
       this.isLoading = false;
       this.recipesService.removeRecipeSearch();
       this.recipesService.storeRecipeSearch(this.recipes);
