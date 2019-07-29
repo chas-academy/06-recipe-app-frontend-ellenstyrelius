@@ -1,3 +1,8 @@
-<p>
-  register works!
-</p>
+<section class="register">
+  <form #form="ngForm"(ngSubmit)="handleLogin(form)">
+    <input ngModel type="text" name="email" placeholder="email" required />
+    <input ngModel type="text" name="password" placeholder="password" required />
+    <input ngModel type="text" name="passwordRepeat" placeholder="repeat password" required />
+    <button type="submit">register account</button>
+  </form>
+</section>

@@ -2,15 +2,15 @@
   <div>
     <a routerLink="/" (click)="clearStoredRecipeSearch()">home</a>
   </div>
-  <div>
+  <!-- <div>
     <a routerLink="/recipes/saved">saved recipes</a>
-  </div>
+  </div> -->
 
   <!-- ok some experments down below: -->
   <div>
-    <button class="navLink" id="register" *ngIf="!isAuthenticated" (click)="register()">register</button>
-    <button class="navLink" *ngIf="!isAuthenticated" (click)="login()">sign in</button>
-    <button class="navLink" id="logout" *ngIf="isAuthenticated" (click)="logout()">logout</button>
+    <button class="navLink" id="register" *ngIf="!isAuthenticated" [routerLink]="['/register']">register</button>
+    <button class="navLink" id="login" *ngIf="!isAuthenticated" [routerLink]="['/login']">sign in</button>
+    <button class="navLink" id="logout" *ngIf="isAuthenticated" [routerLink]="['/']" (click)="logout()">logout</button>
     <button class="navLink" *ngIf="isAuthenticated" [routerLink]="['/recipes/saved']">saved recipes</button>
   </div>
 

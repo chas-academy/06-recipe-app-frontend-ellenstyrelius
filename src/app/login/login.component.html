@@ -1,3 +1,10 @@
-<p>
-  login works!
-</p>
+<section class="login">
+  <form #form="ngForm"(ngSubmit)="handleLogin(form)">
+    <input ngModel type="text" name="email" placeholder="email" required />
+    <input ngModel type="text" name="password" placeholder="password" required />
+    <button type="submit">login</button>
+</form>
+  <div class="register">
+    <p>Don't have an account yet? <a routerLink="/register">Register here!</a> </p>
+  </div>
+</section>
