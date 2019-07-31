@@ -11,7 +11,6 @@ import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
 })
 export class RecipesComponent implements OnInit {
   recipes: any;
-  // recipes: Array<Object>;
   healthLabels: any;
   dietLabels: any;
   isLoading: boolean;
@@ -31,8 +30,6 @@ export class RecipesComponent implements OnInit {
       this.recipes = data;
       ////////////////
       console.log('🐐: RecipesComponent -> handleSearch -> this.recipes', this.recipes)
-
-      // filter this.recipes in some way to get more reasonable search results?
 
       this.isLoading = false;
       this.recipesService.removeRecipeSearch();

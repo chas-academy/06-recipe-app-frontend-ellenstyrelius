@@ -2,6 +2,9 @@
   <form #form="ngForm"(ngSubmit)="handleLogin(form)">
     <input ngModel type="text" name="email" placeholder="email" required />
     <input ngModel type="text" name="password" placeholder="password" required />
+    <div>Remember me, please!
+      <input ngModel type="checkbox" name="remember_me"/>
+    </div>
     <button type="submit">login</button>
 </form>
   <div class="register">
