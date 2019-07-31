@@ -20,9 +20,7 @@ export class RecipesService {
   }
 
   recipeSearch(input: string, dietSelection) {
-
     const diet = '&diet=' + dietSelection;
-    // const apiRequest = this.http.get<any>(`https://api.edamam.com/search?q=${input}&app_id=${appId}&app_key=${apiKey}&to=40${diet}`);
     const search = input.replace('+', ' ');
     const apiRequest = this.http.get<any>(`${this.url}/search?q=${search}${diet}`, this.fetchData);
     return apiRequest;
