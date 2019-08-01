@@ -1,11 +1,15 @@
 <section class="login" *ngIf="!isAuthenticated">
   <form #form="ngForm"(ngSubmit)="handleLogin(form)">
-    <input ngModel type="text" name="email" placeholder="email" required />
-    <input ngModel type="text" name="password" placeholder="password" required />
-    <div>Remember me, please!
+    <div class="textField">
+      <input ngModel type="text" name="email" placeholder="email" required />
+    </div>
+    <div class="textField">
+      <input ngModel type="text" name="password" placeholder="password" required />
+    </div>  
+    <div class="rememberMe">Remember me, please!
       <input ngModel type="checkbox" name="rememberMe"/>
     </div>
-    <button type="submit">login</button>
+    <button type="submit">sign in</button>
 </form>
   <div class="register">
     <p>Don't have an account yet? <a routerLink="/register">Register here!</a> </p>
@@ -13,8 +17,6 @@
 </section>
 
 <section class="loggedIn" *ngIf="isAuthenticated">
-  <div>You're signed in!</div>
-  <div>
-    <a routerLink="/">back to recipe search</a>
-  </div>
+  <p>You're signed in!</p>
+    <a routerLink="/">Back to recipe search</a>
 </section>
