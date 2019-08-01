@@ -25,7 +25,8 @@ nav a,
   box-shadow: none;
 }
 
-#login {
+#login, 
+#savedRecipes {
   background: #7c978d;
   color: white;
 }
@@ -33,13 +34,18 @@ nav a,
 #register {
   background: white;
   color: #547267;
-  font-size: 15px;
-  
+  font-size: 15px;  
+}
+
+#savedRecipes {
+  padding: 5px 10px;
+  margin-right: 10px;
 }
 
 nav a:hover,
 .navLink:hover,
-#login:hover {
+#login:hover,
+#savedRecipes:hover {
   background: #547267;
   color: white;
   transition: 0.15s;
