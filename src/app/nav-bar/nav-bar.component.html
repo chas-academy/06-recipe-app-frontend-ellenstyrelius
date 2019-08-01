@@ -3,7 +3,6 @@
     <a routerLink="/" (click)="clearStoredRecipeSearch()">home</a>
   </div>
 
-  <!-- ok some experments down below: -->
   <div>
     <button class="navLink" id="register" *ngIf="!isAuthenticated" [routerLink]="['/register']">register</button>
     <button class="navLink" id="login" *ngIf="!isAuthenticated" [routerLink]="['/login']">sign in</button>

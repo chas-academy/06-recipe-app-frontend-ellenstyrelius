@@ -1,4 +1,4 @@
-<section class="login">
+<section class="login" *ngIf="!isAuthenticated">
   <form #form="ngForm"(ngSubmit)="handleLogin(form)">
     <input ngModel type="text" name="email" placeholder="email" required />
     <input ngModel type="text" name="password" placeholder="password" required />
@@ -9,5 +9,12 @@
 </form>
   <div class="register">
     <p>Don't have an account yet? <a routerLink="/register">Register here!</a> </p>
+  </div>
+</section>
+
+<section class="loggedIn" *ngIf="isAuthenticated">
+  <div>You're signed in!</div>
+  <div>
+    <a routerLink="/">back to recipe search</a>
   </div>
 </section>
