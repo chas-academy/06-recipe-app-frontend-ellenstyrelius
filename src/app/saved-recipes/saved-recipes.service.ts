@@ -8,14 +8,16 @@ export class SavedRecipesService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://recipes.test/api/auth/saved-recipes/';
+  url = 'http://recipes.test/api/auth/saved-recipes';
   accessToken = localStorage.getItem('accessToken');
+  authHeader = `Bearer ${this.accessToken}`;
+  contentType = 'application/json';
 
-  fetchData = {
-    headers: new HttpHeaders({
-      'Authorization': `Bearer ${this.accessToken}`,
-      'Content-Type': 'application/json'
-    })
+  getFetchData = (headers) => {
+    const fetchData = {
+      headers: new HttpHeaders(headers)
+    }
+    return fetchData;
   }
 
   saveRecipe(recipeDetails) {
@@ -25,23 +27,26 @@ export class SavedRecipesService {
       'label': label,
       'image': image
     }
-    const request = this.http.post(this.url, requestBody, this.fetchData);
+    const fetchData = this.getFetchData({'Authorization': this.authHeader,
+    'Content-Type': this.contentType});
+    const request = this.http.post(this.url, requestBody, fetchData);
     request.subscribe(data =>
       console.log(data)
     );
   }
 
   getSavedRecipes() {
-    // const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
-    // return storedRecipes;
+    const fetchData = this.getFetchData({'Authorization': this.authHeader});
+    return this.http.get(this.url, fetchData);
   }
 
-  removeSavedRecipe(recipeUri) {
-    // const storedRecipes = this.getSavedRecipes();
-    // const filteredRecipesArr = storedRecipes.filter(recipe => 
-    //   recipe.uri !== recipeUri
-    // );
-    // localStorage.setItem('recipes', JSON.stringify(filteredRecipesArr));
+  removeSavedRecipe(recipeId) {
+    const fetchData = this.getFetchData({'Authorization': this.authHeader});
+    return this.http.delete(`${this.url}/${recipeId}`, fetchData);
   }
 
+  removeAll() {
+    const fetchData = this.getFetchData({'Authorization': this.authHeader});
+    return this.http.delete(this.url, fetchData);
+  }
 }

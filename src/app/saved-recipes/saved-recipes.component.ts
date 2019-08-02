@@ -9,23 +9,38 @@ import { SavedRecipesService } from './saved-recipes.service';
 })
 export class SavedRecipesComponent implements OnInit {
   savedRecipes: any;
+  isLoading: boolean = true;
 
   constructor(private savedRecipesService: SavedRecipesService) { 
     this.getSavedRecipesList();
   }
 
   getSavedRecipesList = () => {
-    this.savedRecipes = this.savedRecipesService.getSavedRecipes();
+    const request = this.savedRecipesService.getSavedRecipes();
+    request.subscribe(data => {
+      this.savedRecipes = data;
+      this.isLoading = false;
+    }
+    );
   }
 
-  removeRecipe = (recipeUri) => {
-    this.savedRecipesService.removeSavedRecipe(recipeUri);
-    this.getSavedRecipesList();
+  removeRecipe = (recipeId) => {
+    const request = this.savedRecipesService.removeSavedRecipe(recipeId);
+    request.subscribe(data => {
+      return data;
+    },
+      err => err,
+      () => this.getSavedRecipesList()
+    );
   }
 
   removeAllRecipes = () => {
-    localStorage.removeItem('recipes');
-    this.getSavedRecipesList();
+    const request = this.savedRecipesService.removeAll();
+    request.subscribe(data =>
+    console.log('🐐: SavedRecipesComponent -> removeAllRecipes -> data', data),
+      err => err,
+      () => this.getSavedRecipesList()
+    )
   }
 
   ngOnInit() {
