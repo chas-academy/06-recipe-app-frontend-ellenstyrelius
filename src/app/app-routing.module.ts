@@ -7,15 +7,29 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthenticatedUserService } from './authenticated-user-service';
+import { NotAuthenticatedService } from './not-authenticated.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
-  { path: 'recipes', pathMatch: 'full', component: RecipesComponent },
-  { path: 'recipes/:id', pathMatch: 'full', component: RecipeDetailComponent },
-  { path: 'login', pathMatch: 'full', component: LoginComponent },
-  { path: 'register', pathMatch: 'full', component: RegisterComponent },
-  { path: 'recipes/saved', /*canActivate: [Guard],*/ pathMatch: 'full', component: SavedRecipesComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '',
+    redirectTo: 'recipes', pathMatch: 'full' },
+  { path: 'recipes',
+    pathMatch: 'full', 
+    component: RecipesComponent },
+  { path: 'recipes/:id',
+    pathMatch: 'full',
+    component: RecipeDetailComponent },
+  { path: 'login',
+    pathMatch: 'full',
+    component: LoginComponent },
+  { path: 'register',
+    component: RegisterComponent,
+    canActivate: [NotAuthenticatedService] },
+  { path: 'saved-recipes',
+    component: SavedRecipesComponent,
+    canActivate: [AuthenticatedUserService] },
+  { path: '**',
+    component: NotFoundComponent }
 ];
 
 @NgModule({
