@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { RecipesService } from '../recipes/recipes.service';
 import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
@@ -10,8 +11,12 @@ import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
 })
 export class RecipeDetailComponent implements OnInit {
   recipeDetails: any;
+  accessToken = localStorage.getItem('accessToken');
 
-  constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
+  constructor(
+    private recipesService: RecipesService, 
+    private savedRecipesService: SavedRecipesService, 
+    private router: Router) {
     this.getRecipeDetails();
   }
 
@@ -25,7 +30,11 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   handleSaveRecipe = (recipeDetails) => {
-    this.savedRecipesService.saveRecipe(recipeDetails);
+    if (this.accessToken) {
+      this.savedRecipesService.saveRecipe(recipeDetails);
+    } else {
+    this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit() {

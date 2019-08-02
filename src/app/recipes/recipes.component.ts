@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { RecipesService } from './recipes.service';
 import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
@@ -14,8 +15,12 @@ export class RecipesComponent implements OnInit {
   healthLabels: any;
   dietLabels: any;
   isLoading: boolean;
+  accessToken = localStorage.getItem('accessToken');
 
-  constructor(private recipesService: RecipesService, private savedRecipesService: SavedRecipesService) {
+  constructor(
+    private recipesService: RecipesService, 
+    private savedRecipesService: SavedRecipesService, 
+    private router: Router) {
     this.dietLabels = ['Vegetarian', 'Vegan', 'Sugar-Conscious', 'Alcohol-Free', 'Peanut-Free', 'Tree-Nut-Free', 'Low-Carb', 'Low-Fat', 'High-Protein'];
     this.deleteStoredRecipeSearch();
     this.getStoredRecipeSearch();
@@ -37,8 +42,6 @@ export class RecipesComponent implements OnInit {
     }); 
   }
 
-  ////// DO SOMETHING IF RESPONSE IS !200
-
   handleDietSelections = (form: NgForm) => {
     const diet = [];
     for (let key in form.value) {
@@ -50,8 +53,6 @@ export class RecipesComponent implements OnInit {
   }
 
   getStoredRecipeSearch = () => {
-    console.log(window.history.state.navigationId)
-
     this.recipes = this.recipesService.reloadRecipeSearch();
     
   }
@@ -63,7 +64,11 @@ export class RecipesComponent implements OnInit {
   }
 
   handleSaveRecipe = (recipeDetails) => {
-    this.savedRecipesService.saveRecipe(recipeDetails);
+    if (this.accessToken) {
+      this.savedRecipesService.saveRecipe(recipeDetails);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit() {
