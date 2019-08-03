@@ -25,7 +25,6 @@ export class AccessTokenService {
     if (this.accessToken) {
       const user = this.http.get<any>(this.url, this.fetchData);
       user.subscribe(data => {
-        console.log('🐐: AccessTokenService -> getUser -> data', data)
         return data;
       });
     }

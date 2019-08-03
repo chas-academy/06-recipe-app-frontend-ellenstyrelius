@@ -18,8 +18,6 @@ export class RegisterService {
   };
 
   registerUser(requestBody) {
-    console.log('🐐: RegisterService -> registerUser -> requestBody', requestBody)
-
     return this.http.post(this.url, requestBody, this.fetchData);
   
   }

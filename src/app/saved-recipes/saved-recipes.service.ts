@@ -30,9 +30,7 @@ export class SavedRecipesService {
     const fetchData = this.getFetchData({'Authorization': this.authHeader,
     'Content-Type': this.contentType});
     const request = this.http.post(this.url, requestBody, fetchData);
-    request.subscribe(data =>
-      console.log(data)
-    );
+    request.subscribe(message => message);
   }
 
   getSavedRecipes() {

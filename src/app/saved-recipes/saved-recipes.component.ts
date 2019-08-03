@@ -26,9 +26,7 @@ export class SavedRecipesComponent implements OnInit {
 
   removeRecipe = (recipeId) => {
     const request = this.savedRecipesService.removeSavedRecipe(recipeId);
-    request.subscribe(data => {
-      return data;
-    },
+    request.subscribe(statusCode => statusCode,
       err => err,
       () => this.getSavedRecipesList()
     );
@@ -36,8 +34,7 @@ export class SavedRecipesComponent implements OnInit {
 
   removeAllRecipes = () => {
     const request = this.savedRecipesService.removeAll();
-    request.subscribe(data =>
-    console.log('🐐: SavedRecipesComponent -> removeAllRecipes -> data', data),
+    request.subscribe(statusCode => statusCode,
       err => err,
       () => this.getSavedRecipesList()
     )

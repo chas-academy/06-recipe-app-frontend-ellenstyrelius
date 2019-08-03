@@ -33,9 +33,6 @@ export class RecipesComponent implements OnInit {
     const apiRequest = this.recipesService.recipeSearch(input, dietSelections);
     apiRequest.subscribe(data => {
       this.recipes = data;
-      ////////////////
-      console.log('🐐: RecipesComponent -> handleSearch -> this.recipes', this.recipes)
-
       this.isLoading = false;
       this.recipesService.removeRecipeSearch();
       this.recipesService.storeRecipeSearch(this.recipes);

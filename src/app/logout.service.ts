@@ -19,10 +19,9 @@ export class LogoutService {
   logout() {
     const logoutRequest = this.http.get(this.url, this.fetchData);
     logoutRequest.subscribe(data => {
-      console.log('🐐: LogoutService -> logout -> data', data)
-      
       localStorage.removeItem('accessToken');
       location.reload();
+      return data;
     })
   }
 }
