@@ -102,3 +102,46 @@
     background: antiquewhite;
     transition: 0.25s;
 }
+
+.loader {
+    background: antiquewhite;
+    font-size: 20px;
+    width: 400px;
+    max-width: 60%;
+    height: 8px;
+    margin: 160px auto 0;
+    display: flex;
+    justify-content: center;
+    animation: loader 2.5s infinite;
+}
+
+@keyframes loader {
+    0% {background-color: peachpuff}
+    50% {
+        background-color: #547267;
+        width: 100px;
+        max-width: 20%;
+    }
+    100% {background-color: peachpuff}
+}
+
+a {
+    text-decoration: none;
+}
+
+#backToSearch {
+    background: peachpuff;
+    width: 220px;
+    margin: 0 auto;
+    padding: 8px 12px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 200;
+}
+
+#backToSearch:hover {
+    background: #547267;
+    color: white;
+    font-weight: 200;
+    transition: 0.15s;
+}

@@ -57,19 +57,23 @@
 .loading {
     background: antiquewhite;
     font-size: 20px;
-    width: 300px;
-    max-width: 50%;
+    width: 400px;
+    max-width: 60%;
+    height: 8px;
     margin: 0 auto;
-    padding: 7px;
     display: flex;
     justify-content: center;
     animation: loader 2.5s infinite;
 }
 
 @keyframes loader {
-    0% {background-color: #ffba9f}
-    50% {background-color: #fd8f50}
-    100% {background-color: #ffba9f}
+    0% {background-color: antiquewhite}
+    50% {
+        background-color: #fd8f50;
+        width: 100px;
+        max-width: 20%;
+    }
+    100% {background-color: antiquewhite}
 }
 
 .searchResult p {

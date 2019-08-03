@@ -13,7 +13,7 @@
 </section>
 
 <section class="searchResult">
-  <div class="recipes" *ngIf="recipes">
+  <div class="recipes" *ngIf="recipes && !isLoading">
     <div class="recipeCard" *ngFor="let recipe of recipes">
       <div class="recipeImg">
         <img src="{{recipe.image}}"/>
@@ -30,5 +30,4 @@
 </section>
 
 <section class="loading" *ngIf="form.submitted && isLoading">
-  <p>wait for it.... (°-°)</p>
 </section>

@@ -12,6 +12,11 @@
         <button (click)="removeRecipe(recipe.recipe_id)">remove</button>
       </div>
     </div>
+    
+    <a routerLink="/">
+      <div id="backToSearch"><< back to recipes search</div>
+    </a>
+    
   </div>
 
 <div class="noSavedRecipes" *ngIf="!savedRecipes.length && !isLoading">
@@ -20,3 +25,6 @@
 </div>
 
 </section>
+
+<div class="loader" *ngIf="isLoading && !savedRecipes">
+</div>
