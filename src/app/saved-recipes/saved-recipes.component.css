@@ -3,6 +3,13 @@
     margin: 40px auto;
 }
 
+.savedRecipes h2 {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 100;
+    text-align: center;
+}
+
 .savedRecipes button {
     background: #db8e46;
     color: darkslategray;

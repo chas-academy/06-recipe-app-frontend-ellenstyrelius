@@ -4,6 +4,7 @@
       <button id="removeAll" (click)="removeAllRecipes()">remove all recipes</button>
     </div>
     <div class="recipeCards">
+      <h2>saved recipes</h2>
       <div class="recipeCard" *ngFor="let recipe of savedRecipes">
         <a routerLink="/recipes/{{recipe.recipe_id}}" routerLinkActive="active">
           <img src="{{recipe.image}}"/>
