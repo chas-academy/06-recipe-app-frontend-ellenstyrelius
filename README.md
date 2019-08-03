@@ -1,3 +1,4 @@
 # RecipeAppFrontend
+### a Chas Academy project built with Angular
 
-http://recipe-app.ellenstyrelius.chas.academy
+https://pastapizzapotato.netlify.com
