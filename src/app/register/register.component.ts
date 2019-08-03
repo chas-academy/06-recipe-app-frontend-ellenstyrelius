@@ -8,12 +8,12 @@ import { RegisterService } from './register.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  registerMsg: string;
+  hasError: boolean;
 
   constructor(private registerService: RegisterService) {}
 
   handleRegister = (form: NgForm) => {
-    /////////
-    console.log(form)
     const userInfo = form.value;
     const requestBody = {
       'email': userInfo.email,
@@ -23,9 +23,13 @@ export class RegisterComponent implements OnInit {
 
     const registerRequest = this.registerService.registerUser(requestBody);
     registerRequest.subscribe(data => {
-    console.log('🐐: RegisterComponent -> handleRegister -> data', data)
-      
-    });
+        this.hasError = false;
+        this.registerMsg = 'Congrats, registration successful!'
+      },
+      err => {
+        this.hasError = true;
+        this.registerMsg = 'Unable to register :(';
+      });
   }
 
   ngOnInit() {

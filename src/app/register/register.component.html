@@ -7,3 +7,8 @@
   </form>
   <p>* Your password has to be at least six characters long</p>
 </section>
+
+<section class="registered" *ngIf="registerMsg">
+  <p>{{registerMsg}}</p>
+  <a routerLink="/login" *ngIf="!hasError">Go to sign in page >></a>
+</section>

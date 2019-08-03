@@ -20,7 +20,7 @@ input:focus {
   outline: none;
 }
 
-p {
+.register p {
   margin-top: 40px;
   font-size: 12px;
 }
@@ -28,4 +28,23 @@ p {
 button {
   margin-top: 12px;
   font-size: 14px;
+}
+
+.registered {
+  background: peachpuff;
+  width: 300px;
+  margin: 80px auto 0;
+  padding: 16px ;
+  text-align: center;
+  transition: 1s;
+}
+
+.registered p {
+  font-size: 16px;
+}
+
+.registered a {
+  font-size: 12px;
+  line-height: 2;
+  text-decoration: none;
 }
