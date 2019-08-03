@@ -8,6 +8,7 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  responseData: any;
 
   constructor(private loginService: LoginService) {
     this.checkAccessToken();
@@ -36,10 +37,11 @@ export class LoginComponent implements OnInit {
     const loginRequest = this.loginService.login(requestBody);
     loginRequest.subscribe(
       data => {
-        localStorage.setItem('accessToken', data.access_token);
+        this.responseData = data;
       },
       err => err,
       () => {
+        localStorage.setItem('accessToken', this.responseData.access_token);
         location.reload();
       }
     );
