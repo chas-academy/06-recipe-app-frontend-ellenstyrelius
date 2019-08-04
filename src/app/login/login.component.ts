@@ -9,21 +9,17 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   responseData: any;
+  isAuthenticated: boolean;
 
   constructor(private loginService: LoginService) {
-    this.checkAccessToken();
-  }
-
-  isAuthenticated: boolean;
-  accessToken = localStorage.getItem('accessToken');
-
-  checkAccessToken() {
     if (this.accessToken)  {
       this.isAuthenticated = true;
     } else {
       this.isAuthenticated = false;
     }
   }
+
+  accessToken = localStorage.getItem('accessToken');
 
   handleLogin = (form: NgForm) => {
     const userInfo = form.value;
@@ -37,11 +33,10 @@ export class LoginComponent implements OnInit {
     loginRequest.subscribe(
       data => {
         this.responseData = data;
+        localStorage.setItem('accessToken', this.responseData.access_token);
       },
       err => err,
       () => {
-        localStorage.setItem('accessToken', this.responseData.access_token);
-        this.checkAccessToken();
         location.reload();
       }
     );
