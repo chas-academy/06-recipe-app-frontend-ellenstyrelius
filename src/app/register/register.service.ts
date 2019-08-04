@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import apiurl from '../apiurl';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://recipes.test/api/auth/register';
+  url = `${apiurl}/auth/register`;
 
   fetchData = {
     headers: new HttpHeaders({

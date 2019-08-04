@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import apiurl from '../apiurl';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class SavedRecipesService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://recipes.test/api/auth/saved-recipes';
+  url = `${apiurl}/auth/saved-recipes`;
   accessToken = localStorage.getItem('accessToken');
   authHeader = `Bearer ${this.accessToken}`;
   contentType = 'application/json';

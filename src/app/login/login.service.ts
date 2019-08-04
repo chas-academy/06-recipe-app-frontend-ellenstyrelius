@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import apiurl from '../apiurl';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
-  url = 'http://recipes.test/api/auth/login';
+  url = `${apiurl}/auth/login`;
 
   fetchData = {
     headers: new HttpHeaders({
