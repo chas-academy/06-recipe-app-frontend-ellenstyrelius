@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       err => err,
       () => {
         localStorage.setItem('accessToken', this.responseData.access_token);
+        this.checkAccessToken();
         location.reload();
       }
     );
