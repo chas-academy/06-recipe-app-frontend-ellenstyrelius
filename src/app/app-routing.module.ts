@@ -12,9 +12,7 @@ import { NotAuthenticatedService } from './not-authenticated.service';
 
 const routes: Routes = [
   { path: '',
-    redirectTo: 'recipes', pathMatch: 'full' },
-  { path: 'recipes',
-    pathMatch: 'full', 
+    pathMatch: 'full',
     component: RecipesComponent },
   { path: 'recipes/:id',
     pathMatch: 'full',
