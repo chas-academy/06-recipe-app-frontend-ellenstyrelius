@@ -1,10 +1,10 @@
 <section class="login" *ngIf="!isAuthenticated">
   <form #form="ngForm"(ngSubmit)="handleLogin(form)">
     <div class="textField">
-      <input ngModel type="text" name="email" placeholder="email" required />
+      <input ngModel type="email" name="email" placeholder="email" required />
     </div>
     <div class="textField">
-      <input ngModel type="text" name="password" placeholder="password" required />
+      <input ngModel type="password" name="password" placeholder="password" required />
     </div>  
     <div class="rememberMe">Remember me, please!
       <input ngModel type="checkbox" name="rememberMe"/>
