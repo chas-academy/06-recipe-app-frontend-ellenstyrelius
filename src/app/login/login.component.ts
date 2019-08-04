@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   handleLogin = (form: NgForm) => {
     const userInfo = form.value;
     const requestBody = {
@@ -42,6 +41,7 @@ export class LoginComponent implements OnInit {
       err => err,
       () => {
         localStorage.setItem('accessToken', this.responseData.access_token);
+        this.checkAccessToken();
         location.reload();
       }
     );
