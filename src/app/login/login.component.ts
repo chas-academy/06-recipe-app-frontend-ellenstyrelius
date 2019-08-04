@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     this.checkAccessToken();
   }
 
-  isAuthenticated = false;
+  isAuthenticated: boolean;
   accessToken = localStorage.getItem('accessToken');
 
   checkAccessToken() {
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
       err => err,
       () => {
         localStorage.setItem('accessToken', this.responseData.access_token);
-        this.checkAccessToken();
         location.reload();
       }
     );
